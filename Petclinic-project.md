@@ -187,7 +187,7 @@ Pivotal's Spring PetClinic taught a generation of Java developers how to build w
 
 **Credits:** The original [Spring PetClinic](https://github.com/spring-projects/spring-petclinic) was created by **Pivotal** (now VMware Tanzu) and is maintained by the Spring team. The domain model, database schema, and sample data in this project are derived from their work. This TypeScript rebuild is an independent reimplementation - all application code, UI design, authentication system, and AI features are original.
 
-**The code is on GitHub.** Star it, fork it, break it, make it yours.
+**The code is on GitHub(https://github.com/Manju1306/PetClinic/tree/main/frontend/client).** Star it, fork it, break it, make it yours.
 
 ---
 
