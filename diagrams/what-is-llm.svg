@@ -1,0 +1,74 @@
+<svg viewBox="0 0 780 420" xmlns="http://www.w3.org/2000/svg" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #111;">
+  <defs>
+    <marker id="a1" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 3.5 L 0 7 z" fill="#888"/>
+    </marker>
+    <marker id="a1r" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 3.5 L 0 7 z" fill="#ef4444"/>
+    </marker>
+  </defs>
+
+  <text x="390" y="30" fill="#eee" font-size="15" font-weight="700" text-anchor="middle">What is an LLM?</text>
+  <text x="390" y="50" fill="#aaa" font-size="10.5" text-anchor="middle">A Large Language Model predicts the next words based on patterns in its training data</text>
+
+  <!-- Training phase -->
+  <rect x="40" y="70" width="340" height="130" rx="10" fill="#1e1e1e" stroke="#8b5cf6" stroke-width="1.5"/>
+  <rect x="40" y="70" width="340" height="24" rx="10" fill="#8b5cf6"/>
+  <rect x="40" y="82" width="340" height="12" fill="#8b5cf6"/>
+  <text x="160" y="88" fill="white" font-size="10" font-weight="700">TRAINING (happens once)</text>
+
+  <rect x="60" y="106" width="90" height="36" rx="6" fill="#2a2a2a" stroke="#333"/>
+  <text x="75" y="128" fill="#aaa" font-size="9">Books</text>
+
+  <rect x="160" y="106" width="90" height="36" rx="6" fill="#2a2a2a" stroke="#333"/>
+  <text x="172" y="128" fill="#aaa" font-size="9">Websites</text>
+
+  <rect x="260" y="106" width="100" height="36" rx="6" fill="#2a2a2a" stroke="#333"/>
+  <text x="277" y="128" fill="#aaa" font-size="9">Code</text>
+
+  <text x="60" y="165" fill="#aaa" font-size="9">Billions of text documents → learns patterns</text>
+  <text x="60" y="180" fill="#aaa" font-size="9">like the world's most advanced autocomplete</text>
+
+  <!-- Inference phase -->
+  <rect x="400" y="70" width="340" height="130" rx="10" fill="#1e1e1e" stroke="#3b82f6" stroke-width="1.5"/>
+  <rect x="400" y="70" width="340" height="24" rx="10" fill="#3b82f6"/>
+  <rect x="400" y="82" width="340" height="12" fill="#3b82f6"/>
+  <text x="510" y="88" fill="white" font-size="10" font-weight="700">INFERENCE (every request)</text>
+
+  <text x="420" y="118" fill="#eee" font-size="10">You type: "My dog is limping..."</text>
+  <text x="420" y="140" fill="#aaa" font-size="9">LLM: Based on patterns I've seen,</text>
+  <text x="420" y="155" fill="#aaa" font-size="9">the next words should be about</text>
+  <text x="420" y="170" fill="#aaa" font-size="9">seeing a vet, checking for injuries...</text>
+  <text x="420" y="188" fill="#3b82f6" font-size="9.5" font-weight="600">→ Generates a likely response</text>
+
+  <!-- Tokens explanation -->
+  <rect x="40" y="220" width="700" height="60" rx="10" fill="#1e1e1e" stroke="#333" stroke-width="1"/>
+  <text x="60" y="244" fill="#16a34a" font-size="11" font-weight="700">TOKENS</text>
+  <text x="130" y="244" fill="#aaa" font-size="10">LLMs read tokens, not words. 1 token ≈ ¾ of a word. You pay per token (input + output).</text>
+  <rect x="60" y="254" width="60" height="18" rx="4" fill="#16a34a33" stroke="#16a34a" stroke-width="0.5"/>
+  <text x="70" y="267" fill="#16a34a" font-size="8.5">"cat" = 1</text>
+  <rect x="130" y="254" width="120" height="18" rx="4" fill="#16a34a33" stroke="#16a34a" stroke-width="0.5"/>
+  <text x="140" y="267" fill="#16a34a" font-size="8.5">"veterinarian" = 3</text>
+  <rect x="260" y="254" width="130" height="18" rx="4" fill="#16a34a33" stroke="#16a34a" stroke-width="0.5"/>
+  <text x="270" y="267" fill="#16a34a" font-size="8.5">"Hello world!" = 3</text>
+
+  <!-- The problem -->
+  <text x="390" y="310" fill="#eee" font-size="12" font-weight="700" text-anchor="middle">The Problem — Hallucination</text>
+
+  <rect x="40" y="325" width="340" height="80" rx="10" fill="#1e1e1e" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="60" y="348" fill="#ef4444" font-size="10" font-weight="700">LLM DOESN'T KNOW YOUR DATA</text>
+  <text x="60" y="368" fill="#aaa" font-size="9.5">User: "Which vet handles dental issues?"</text>
+  <text x="60" y="386" fill="#ef4444" font-size="9.5">AI: "Dr. Smith is great!" ← MADE UP</text>
+  <text x="60" y="400" fill="#666" font-size="8.5" font-style="italic">No Dr. Smith exists in your database</text>
+
+  <line x1="380" y1="365" x2="396" y2="365" stroke="#888" stroke-width="1.2" marker-end="url(#a1)"/>
+
+  <rect x="400" y="325" width="340" height="80" rx="10" fill="#1e1e1e" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="420" y="348" fill="#16a34a" font-size="10" font-weight="700">THIS PROJECT SOLVES IT WITH:</text>
+  <text x="420" y="370" fill="#f97316" font-size="9.5" font-weight="600">MCP Tools</text>
+  <text x="500" y="370" fill="#aaa" font-size="9.5">→ real database access</text>
+  <text x="420" y="386" fill="#06b6d4" font-size="9.5" font-weight="600">RAG</text>
+  <text x="456" y="386" fill="#aaa" font-size="9.5">→ knowledge base search</text>
+  <text x="420" y="402" fill="#8b5cf6" font-size="9.5" font-weight="600">LLM Gateway</text>
+  <text x="510" y="402" fill="#aaa" font-size="9.5">→ smart provider routing</text>
+</svg>

@@ -1,0 +1,155 @@
+<svg viewBox="0 0 780 860" xmlns="http://www.w3.org/2000/svg" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #111;">
+
+  <defs>
+    <marker id="arr" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 3.5 L 0 7 z" fill="#888"/>
+    </marker>
+    <marker id="arr-o" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 3.5 L 0 7 z" fill="#f97316"/>
+    </marker>
+    <marker id="arr-g" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 3.5 L 0 7 z" fill="#16a34a"/>
+    </marker>
+  </defs>
+
+  <!-- TITLE -->
+  <text x="390" y="30" fill="#eee" font-size="15" font-weight="700" text-anchor="middle">MCP Tools — Giving the AI Hands</text>
+  <text x="390" y="50" fill="#aaa" font-size="10.5" text-anchor="middle">Without tools, the AI guesses. With tools, the AI knows.</text>
+
+  <!-- WITHOUT vs WITH -->
+  <rect x="40" y="68" width="340" height="90" rx="10" fill="#1e1e1e" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="60" y="90" fill="#ef4444" font-size="11" font-weight="700">WITHOUT TOOLS</text>
+  <text x="60" y="110" fill="#aaa" font-size="10">User: "Which vet does dental work?"</text>
+  <text x="60" y="128" fill="#ef4444" font-size="10">AI: "I'd recommend looking for a dentist"</text>
+  <text x="60" y="146" fill="#666" font-size="9" font-style="italic">Generic guess from training data</text>
+
+  <rect x="400" y="68" width="340" height="90" rx="10" fill="#1e1e1e" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="420" y="90" fill="#16a34a" font-size="11" font-weight="700">WITH MCP TOOLS</text>
+  <text x="420" y="110" fill="#aaa" font-size="10">User: "Which vet does dental work?"</text>
+  <text x="420" y="128" fill="#16a34a" font-size="10">AI: "Dr. Linda Douglas — dentistry"</text>
+  <text x="420" y="146" fill="#666" font-size="9" font-style="italic">Real data from the database</text>
+
+  <!-- 4 STEPS -->
+  <text x="390" y="190" fill="#eee" font-size="12" font-weight="700" text-anchor="middle">How MCP Tools Work — 4 Steps</text>
+
+  <rect x="40" y="208" width="163" height="72" rx="8" fill="#1e1e1e" stroke="#8b5cf6" stroke-width="1.5"/>
+  <rect x="40" y="208" width="163" height="22" rx="8" fill="#8b5cf6"/>
+  <rect x="40" y="218" width="163" height="12" fill="#8b5cf6"/>
+  <text x="56" y="224" fill="white" font-size="10" font-weight="700">1. YOU DEFINE</text>
+  <text x="56" y="248" fill="#aaa" font-size="9">Functions with</text>
+  <text x="56" y="262" fill="#aaa" font-size="9">descriptions + schemas</text>
+
+  <rect x="223" y="208" width="163" height="72" rx="8" fill="#1e1e1e" stroke="#3b82f6" stroke-width="1.5"/>
+  <rect x="223" y="208" width="163" height="22" rx="8" fill="#3b82f6"/>
+  <rect x="223" y="218" width="163" height="12" fill="#3b82f6"/>
+  <text x="239" y="224" fill="white" font-size="10" font-weight="700">2. AI READS</text>
+  <text x="239" y="248" fill="#aaa" font-size="9">Reads descriptions,</text>
+  <text x="239" y="262" fill="#aaa" font-size="9">decides which to call</text>
+
+  <rect x="406" y="208" width="163" height="72" rx="8" fill="#1e1e1e" stroke="#f97316" stroke-width="1.5"/>
+  <rect x="406" y="208" width="163" height="22" rx="8" fill="#f97316"/>
+  <rect x="406" y="218" width="163" height="12" fill="#f97316"/>
+  <text x="422" y="224" fill="white" font-size="10" font-weight="700">3. YOU EXECUTE</text>
+  <text x="422" y="248" fill="#aaa" font-size="9">Run the function,</text>
+  <text x="422" y="262" fill="#aaa" font-size="9">query the database</text>
+
+  <rect x="589" y="208" width="163" height="72" rx="8" fill="#1e1e1e" stroke="#16a34a" stroke-width="1.5"/>
+  <rect x="589" y="208" width="163" height="22" rx="8" fill="#16a34a"/>
+  <rect x="589" y="218" width="163" height="12" fill="#16a34a"/>
+  <text x="605" y="224" fill="white" font-size="10" font-weight="700">4. AI ANSWERS</text>
+  <text x="605" y="248" fill="#aaa" font-size="9">Uses real data in</text>
+  <text x="605" y="262" fill="#aaa" font-size="9">natural language</text>
+
+  <line x1="203" y1="244" x2="219" y2="244" stroke="#888" stroke-width="1.2" marker-end="url(#arr)"/>
+  <line x1="386" y1="244" x2="402" y2="244" stroke="#888" stroke-width="1.2" marker-end="url(#arr)"/>
+  <line x1="569" y1="244" x2="585" y2="244" stroke="#888" stroke-width="1.2" marker-end="url(#arr)"/>
+
+  <!-- THE 7 TOOLS -->
+  <text x="390" y="314" fill="#eee" font-size="12" font-weight="700" text-anchor="middle">The 7 Tools I Built</text>
+  <text x="60" y="338" fill="#888" font-size="9">Each tool has: description (when to use) + schema (what params) + execute (the code)</text>
+
+  <text x="60" y="365" fill="#f97316" font-size="10" font-weight="700" letter-spacing="1">DATABASE TOOLS</text>
+  <line x1="60" y1="371" x2="420" y2="371" stroke="#f97316" stroke-width="0.5" opacity="0.5"/>
+
+  <rect x="40" y="380" width="185" height="80" rx="8" fill="#1e1e1e" stroke="#f97316" stroke-width="1.2"/>
+  <text x="58" y="400" fill="#f97316" font-size="11" font-weight="700">search_vets</text>
+  <text x="58" y="418" fill="#aaa" font-size="9">Find vets by specialty</text>
+  <text x="58" y="432" fill="#aaa" font-size="9">or name</text>
+  <rect x="56" y="440" width="55" height="14" rx="3" fill="#16a34a33" stroke="#16a34a" stroke-width="0.5"/>
+  <text x="63" y="450" fill="#16a34a" font-size="7.5" font-weight="600">Everyone</text>
+
+  <rect x="240" y="380" width="185" height="80" rx="8" fill="#1e1e1e" stroke="#f97316" stroke-width="1.2"/>
+  <text x="258" y="400" fill="#f97316" font-size="11" font-weight="700">get_my_pets</text>
+  <text x="258" y="418" fill="#aaa" font-size="9">Get user's pets</text>
+  <text x="258" y="432" fill="#aaa" font-size="9">Admins see all owners</text>
+  <rect x="258" y="440" width="72" height="14" rx="3" fill="#eab30833" stroke="#eab308" stroke-width="0.5"/>
+  <text x="264" y="450" fill="#eab308" font-size="7.5" font-weight="600">Role-scoped</text>
+
+  <rect x="440" y="380" width="150" height="80" rx="8" fill="#1e1e1e" stroke="#f97316" stroke-width="1.2"/>
+  <text x="458" y="400" fill="#f97316" font-size="11" font-weight="700">add_visit</text>
+  <text x="458" y="418" fill="#aaa" font-size="9">Book a new vet</text>
+  <text x="458" y="432" fill="#aaa" font-size="9">visit for a pet</text>
+  <rect x="458" y="440" width="72" height="14" rx="3" fill="#eab30833" stroke="#eab308" stroke-width="0.5"/>
+  <text x="464" y="450" fill="#eab308" font-size="7.5" font-weight="600">Role-scoped</text>
+
+  <rect x="605" y="380" width="150" height="80" rx="8" fill="#1e1e1e" stroke="#f97316" stroke-width="1.2"/>
+  <text x="617" y="400" fill="#f97316" font-size="11" font-weight="700">get_pet_visits</text>
+  <text x="617" y="418" fill="#aaa" font-size="9">Visit history</text>
+  <text x="617" y="432" fill="#aaa" font-size="9">for a specific pet</text>
+  <rect x="617" y="440" width="72" height="14" rx="3" fill="#eab30833" stroke="#eab308" stroke-width="0.5"/>
+  <text x="623" y="450" fill="#eab308" font-size="7.5" font-weight="600">Role-scoped</text>
+
+  <rect x="40" y="475" width="185" height="65" rx="8" fill="#1e1e1e" stroke="#f97316" stroke-width="1"/>
+  <text x="58" y="498" fill="#f97316" font-size="11" font-weight="600">list_specialties</text>
+  <text x="58" y="516" fill="#aaa" font-size="9">All vet specialties available</text>
+  <rect x="58" y="522" width="55" height="14" rx="3" fill="#16a34a33" stroke="#16a34a" stroke-width="0.5"/>
+  <text x="65" y="532" fill="#16a34a" font-size="7.5" font-weight="600">Everyone</text>
+
+  <rect x="240" y="475" width="185" height="65" rx="8" fill="#1e1e1e" stroke="#f97316" stroke-width="1"/>
+  <text x="258" y="498" fill="#f97316" font-size="11" font-weight="600">list_pet_types</text>
+  <text x="258" y="516" fill="#aaa" font-size="9">Supported: dog, cat, bird...</text>
+  <rect x="258" y="522" width="55" height="14" rx="3" fill="#16a34a33" stroke="#16a34a" stroke-width="0.5"/>
+  <text x="265" y="532" fill="#16a34a" font-size="7.5" font-weight="600">Everyone</text>
+
+  <text x="470" y="488" fill="#06b6d4" font-size="10" font-weight="700" letter-spacing="1">KNOWLEDGE TOOL (RAG)</text>
+  <line x1="470" y1="494" x2="740" y2="494" stroke="#06b6d4" stroke-width="0.5" opacity="0.5"/>
+
+  <rect x="440" y="503" width="315" height="65" rx="8" fill="#1e1e1e" stroke="#06b6d4" stroke-width="1.5"/>
+  <text x="458" y="526" fill="#06b6d4" font-size="11" font-weight="700">search_knowledge</text>
+  <text x="458" y="544" fill="#aaa" font-size="9">Vaccines, nutrition, dental, pricing, hours — 14 articles</text>
+  <rect x="680" y="518" width="55" height="14" rx="3" fill="#16a34a33" stroke="#16a34a" stroke-width="0.5"/>
+  <text x="687" y="528" fill="#16a34a" font-size="7.5" font-weight="600">Everyone</text>
+
+  <!-- REAL EXAMPLE -->
+  <text x="390" y="605" fill="#eee" font-size="12" font-weight="700" text-anchor="middle">Real Example — Booking a Visit (Multi-Step)</text>
+
+  <rect x="40" y="625" width="700" height="38" rx="8" fill="#1e1e1e" stroke="#333"/>
+  <text x="82" y="640" fill="#ddd" font-size="10.5" font-weight="600">"Book a visit for my cat next Monday for a checkup"</text>
+  <text x="82" y="655" fill="#666" font-size="8.5">User sends message</text>
+
+  <line x1="390" y1="663" x2="390" y2="678" stroke="#f97316" stroke-width="1.2" marker-end="url(#arr-o)"/>
+
+  <rect x="40" y="680" width="340" height="50" rx="8" fill="#1e1e1e" stroke="#f97316" stroke-width="1.2"/>
+  <text x="58" y="700" fill="#f97316" font-size="10" font-weight="700">Step 1: AI calls get_my_pets()</text>
+  <text x="58" y="718" fill="#aaa" font-size="9.5">DB returns: cat "Whiskers" (id: 7)</text>
+
+  <rect x="400" y="680" width="340" height="50" rx="8" fill="#2a2a2a" stroke="#333" stroke-width="0.8"/>
+  <text x="418" y="700" fill="#aaa" font-size="9">AI thinks: "I need the user's pets first"</text>
+  <text x="418" y="718" fill="#aaa" font-size="9">SELECT * FROM pets WHERE owner.username = 'manju'</text>
+
+  <line x1="390" y1="730" x2="390" y2="745" stroke="#f97316" stroke-width="1.2" marker-end="url(#arr-o)"/>
+
+  <rect x="40" y="747" width="340" height="50" rx="8" fill="#1e1e1e" stroke="#f97316" stroke-width="1.2"/>
+  <text x="58" y="767" fill="#f97316" font-size="10" font-weight="700">Step 2: AI calls add_visit()</text>
+  <text x="58" y="785" fill="#aaa" font-size="9.5">petId: 7, date: 2026-06-23, desc: "checkup"</text>
+
+  <rect x="400" y="747" width="340" height="50" rx="8" fill="#2a2a2a" stroke="#333" stroke-width="0.8"/>
+  <text x="418" y="767" fill="#aaa" font-size="9">AI thinks: "Found the cat, now book the visit"</text>
+  <text x="418" y="785" fill="#aaa" font-size="9">INSERT INTO visits (pet_id, date, description)</text>
+
+  <line x1="390" y1="797" x2="390" y2="812" stroke="#16a34a" stroke-width="1.2" marker-end="url(#arr-g)"/>
+
+  <rect x="40" y="814" width="700" height="38" rx="8" fill="#1e1e1e" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="82" y="830" fill="#16a34a" font-size="10.5" font-weight="600">"Visit booked for Whiskers on June 23 for a checkup!"</text>
+  <text x="82" y="845" fill="#666" font-size="8.5">2 tool calls, zero hallucination — every detail from the database</text>
+</svg>

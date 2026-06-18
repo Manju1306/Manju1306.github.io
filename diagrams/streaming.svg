@@ -1,0 +1,91 @@
+<svg viewBox="0 0 780 420" xmlns="http://www.w3.org/2000/svg" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #111;">
+  <defs>
+    <marker id="a7" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 3.5 L 0 7 z" fill="#888"/>
+    </marker>
+    <marker id="a7g" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 3.5 L 0 7 z" fill="#16a34a"/>
+    </marker>
+  </defs>
+
+  <text x="390" y="28" fill="#eee" font-size="15" font-weight="700" text-anchor="middle">Streaming — Real-Time Responses</text>
+  <text x="390" y="48" fill="#aaa" font-size="10.5" text-anchor="middle">Text arrives word by word — same experience as ChatGPT</text>
+
+  <!-- Without vs With -->
+  <rect x="40" y="68" width="340" height="90" rx="10" fill="#1e1e1e" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="60" y="92" fill="#ef4444" font-size="11" font-weight="700">WITHOUT STREAMING</text>
+  <rect x="60" y="102" width="180" height="16" rx="3" fill="#2a2a2a" stroke="#333"/>
+  <text x="70" y="114" fill="#666" font-size="8.5">waiting... 3 seconds... nothing...</text>
+  <rect x="60" y="126" width="300" height="22" rx="4" fill="#ef444422" stroke="#ef4444" stroke-width="0.8"/>
+  <text x="72" y="141" fill="#ef4444" font-size="9">WALL OF TEXT appears all at once</text>
+
+  <rect x="400" y="68" width="340" height="90" rx="10" fill="#1e1e1e" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="420" y="92" fill="#16a34a" font-size="11" font-weight="700">WITH STREAMING</text>
+  <rect x="420" y="102" width="60" height="16" rx="3" fill="#16a34a33" stroke="#16a34a" stroke-width="0.5"/>
+  <text x="428" y="114" fill="#16a34a" font-size="8.5">Puppies</text>
+  <rect x="486" y="102" width="45" height="16" rx="3" fill="#16a34a22" stroke="#16a34a" stroke-width="0.5"/>
+  <text x="494" y="114" fill="#16a34a" font-size="8.5">need</text>
+  <rect x="537" y="102" width="95" height="16" rx="3" fill="#16a34a11" stroke="#16a34a" stroke-width="0.5"/>
+  <text x="545" y="114" fill="#16a34a" font-size="8.5">vaccinations...</text>
+  <rect x="420" y="126" width="300" height="22" rx="4" fill="#16a34a22" stroke="#16a34a" stroke-width="0.8"/>
+  <text x="432" y="141" fill="#16a34a" font-size="9">Words appear as they're generated</text>
+
+  <!-- The Flow -->
+  <text x="390" y="188" fill="#eee" font-size="12" font-weight="700" text-anchor="middle">The Streaming Pipeline</text>
+
+  <!-- LLM -->
+  <rect x="40" y="205" width="150" height="55" rx="8" fill="#1e1e1e" stroke="#8b5cf6" stroke-width="1.2"/>
+  <text x="60" y="228" fill="#8b5cf6" font-size="10" font-weight="700">LLM generates</text>
+  <text x="60" y="248" fill="#aaa" font-size="9">word by word</text>
+
+  <!-- chunks -->
+  <line x1="190" y1="232" x2="220" y2="232" stroke="#16a34a" stroke-width="1.2" marker-end="url(#a7g)"/>
+
+  <rect x="224" y="210" width="60" height="22" rx="4" fill="#16a34a33" stroke="#16a34a" stroke-width="0.8"/>
+  <text x="234" y="225" fill="#16a34a" font-size="8.5">chunk1</text>
+  <rect x="224" y="236" width="60" height="22" rx="4" fill="#16a34a22" stroke="#16a34a" stroke-width="0.5"/>
+  <text x="234" y="251" fill="#16a34a" font-size="8.5">chunk2</text>
+
+  <line x1="284" y1="232" x2="304" y2="232" stroke="#16a34a" stroke-width="1.2" marker-end="url(#a7g)"/>
+
+  <!-- Server -->
+  <rect x="308" y="205" width="170" height="55" rx="8" fill="#1e1e1e" stroke="#f97316" stroke-width="1.2"/>
+  <text x="328" y="225" fill="#f97316" font-size="10" font-weight="700">Express Server</text>
+  <text x="328" y="242" fill="#eee" font-size="9">for await (chunk)</text>
+  <text x="328" y="254" fill="#aaa" font-size="9">res.write(chunk)</text>
+
+  <line x1="478" y1="232" x2="508" y2="232" stroke="#16a34a" stroke-width="1.2" marker-end="url(#a7g)"/>
+
+  <!-- HTTP -->
+  <rect x="510" y="215" width="60" height="35" rx="4" fill="#2a2a2a" stroke="#333"/>
+  <text x="520" y="236" fill="#aaa" font-size="8.5">HTTP</text>
+
+  <line x1="570" y1="232" x2="600" y2="232" stroke="#16a34a" stroke-width="1.2" marker-end="url(#a7g)"/>
+
+  <!-- Browser -->
+  <rect x="604" y="205" width="140" height="55" rx="8" fill="#1e1e1e" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="620" y="225" fill="#16a34a" font-size="10" font-weight="700">React Browser</text>
+  <text x="620" y="242" fill="#eee" font-size="9">reader.read()</text>
+  <text x="620" y="254" fill="#aaa" font-size="9">setState → re-render</text>
+
+  <!-- Server code -->
+  <rect x="40" y="280" width="345" height="125" rx="10" fill="#1e1e1e" stroke="#f97316" stroke-width="1.2"/>
+  <text x="60" y="305" fill="#f97316" font-size="11" font-weight="700">SERVER — chat.ts</text>
+
+  <text x="60" y="326" fill="#888" font-size="9">res.setHeader('Content-Type', 'text/plain')</text>
+  <text x="60" y="344" fill="#eee" font-size="9.5" font-weight="600">for await (const chunk of result.textStream) {</text>
+  <text x="72" y="360" fill="#16a34a" font-size="9.5">res.write(chunk);</text>
+  <text x="60" y="376" fill="#eee" font-size="9.5" font-weight="600">}</text>
+  <text x="60" y="396" fill="#888" font-size="9">// fallback if stream is empty</text>
+
+  <!-- Client code -->
+  <rect x="400" y="280" width="345" height="125" rx="10" fill="#1e1e1e" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="420" y="305" fill="#16a34a" font-size="11" font-weight="700">CLIENT — ChatWidget.tsx</text>
+
+  <text x="420" y="326" fill="#eee" font-size="9.5" font-weight="600">const reader = res.body.getReader();</text>
+  <text x="420" y="344" fill="#eee" font-size="9.5" font-weight="600">while (true) {</text>
+  <text x="432" y="360" fill="#aaa" font-size="9">const { done, value } = await reader.read();</text>
+  <text x="432" y="376" fill="#16a34a" font-size="9.5">fullText += decode(value);</text>
+  <text x="432" y="392" fill="#16a34a" font-size="9.5">setMessages(...)  // re-render UI</text>
+  <text x="420" y="406" fill="#eee" font-size="9.5" font-weight="600">}</text>
+</svg>

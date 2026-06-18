@@ -1,0 +1,84 @@
+<svg viewBox="0 0 780 480" xmlns="http://www.w3.org/2000/svg" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #111;">
+  <defs>
+    <marker id="a6" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 3.5 L 0 7 z" fill="#888"/>
+    </marker>
+    <marker id="a6p" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 3.5 L 0 7 z" fill="#8b5cf6"/>
+    </marker>
+  </defs>
+
+  <text x="390" y="28" fill="#eee" font-size="15" font-weight="700" text-anchor="middle">LLM Gateway — Production-Grade Routing</text>
+  <text x="390" y="48" fill="#aaa" font-size="10.5" text-anchor="middle">Dynamic switching, automatic fallback, usage logging — no restart needed</text>
+
+  <!-- Your App -->
+  <rect x="280" y="68" width="220" height="40" rx="8" fill="#3b82f622" stroke="#3b82f6" stroke-width="1.2"/>
+  <text x="340" y="93" fill="#3b82f6" font-size="11" font-weight="700" text-anchor="middle">chatStream()</text>
+  <text x="430" y="93" fill="#aaa" font-size="9">service.ts</text>
+
+  <line x1="390" y1="108" x2="390" y2="135" stroke="#8b5cf6" stroke-width="1.2" marker-end="url(#a6p)"/>
+
+  <!-- Gateway box -->
+  <rect x="40" y="138" width="700" height="200" rx="12" fill="#1e1e1e" stroke="#8b5cf6" stroke-width="1.8"/>
+  <text x="60" y="165" fill="#8b5cf6" font-size="12" font-weight="700" letter-spacing="1">LLM GATEWAY</text>
+  <text x="195" y="165" fill="#aaa" font-size="10">gateway.ts</text>
+
+  <!-- Feature 1: Dynamic switching -->
+  <rect x="60" y="180" width="200" height="65" rx="8" fill="#2a2a2a" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="78" y="200" fill="#8b5cf6" font-size="10" font-weight="700">Dynamic Switching</text>
+  <text x="78" y="218" fill="#aaa" font-size="9">Change provider at runtime</text>
+  <text x="78" y="234" fill="#aaa" font-size="9">PUT /api/gateway/provider</text>
+
+  <!-- Feature 2: Auto fallback -->
+  <rect x="275" y="180" width="200" height="65" rx="8" fill="#2a2a2a" stroke="#f97316" stroke-width="1"/>
+  <text x="293" y="200" fill="#f97316" font-size="10" font-weight="700">Auto Fallback</text>
+  <text x="293" y="218" fill="#aaa" font-size="9">Primary fails → try next</text>
+  <text x="293" y="234" fill="#aaa" font-size="9">Google → OpenAI → Anthropic</text>
+
+  <!-- Feature 3: Usage logging -->
+  <rect x="490" y="180" width="230" height="65" rx="8" fill="#2a2a2a" stroke="#16a34a" stroke-width="1"/>
+  <text x="508" y="200" fill="#16a34a" font-size="10" font-weight="700">Usage Logging</text>
+  <text x="508" y="218" fill="#aaa" font-size="9">Provider, model, latency, success</text>
+  <text x="508" y="234" fill="#aaa" font-size="9">GET /api/gateway/stats</text>
+
+  <!-- Provider selection -->
+  <text x="390" y="272" fill="#888" font-size="9" text-anchor="middle">selects best available provider</text>
+
+  <!-- Three providers -->
+  <rect x="60" y="282" width="200" height="42" rx="6" fill="#16a34a22" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="80" y="305" fill="#16a34a" font-size="10.5" font-weight="700">Google Gemini</text>
+  <text x="190" y="305" fill="#16a34a" font-size="9">PRIMARY</text>
+
+  <rect x="275" y="282" width="200" height="42" rx="6" fill="#2a2a2a" stroke="#444"/>
+  <text x="295" y="305" fill="#ddd" font-size="10.5" font-weight="600">OpenAI GPT-4o</text>
+  <text x="410" y="305" fill="#888" font-size="9">fallback</text>
+
+  <rect x="490" y="282" width="230" height="42" rx="6" fill="#2a2a2a" stroke="#444"/>
+  <text x="510" y="305" fill="#ddd" font-size="10.5" font-weight="600">Anthropic Claude</text>
+  <text x="645" y="305" fill="#888" font-size="9">fallback</text>
+
+  <!-- Arrow out -->
+  <line x1="390" y1="338" x2="390" y2="360" stroke="#888" stroke-width="1.2" marker-end="url(#a6)"/>
+  <text x="400" y="355" fill="#888" font-size="9">selected model</text>
+
+  <!-- Admin API -->
+  <rect x="40" y="370" width="700" height="95" rx="10" fill="#1e1e1e" stroke="#333" stroke-width="1"/>
+  <text x="60" y="395" fill="#eab308" font-size="11" font-weight="700">ADMIN API</text>
+  <text x="160" y="395" fill="#aaa" font-size="9">(ROLE_ADMIN only)</text>
+
+  <rect x="60" y="408" width="155" height="44" rx="6" fill="#2a2a2a" stroke="#444"/>
+  <text x="75" y="426" fill="#eee" font-size="9" font-weight="600">GET /config</text>
+  <text x="75" y="442" fill="#aaa" font-size="8.5">View providers + keys</text>
+
+  <rect x="228" y="408" width="155" height="44" rx="6" fill="#2a2a2a" stroke="#444"/>
+  <text x="243" y="426" fill="#eee" font-size="9" font-weight="600">PUT /provider</text>
+  <text x="243" y="442" fill="#aaa" font-size="8.5">Switch provider</text>
+
+  <rect x="396" y="408" width="155" height="44" rx="6" fill="#2a2a2a" stroke="#444"/>
+  <text x="411" y="426" fill="#eee" font-size="9" font-weight="600">GET /stats</text>
+  <text x="411" y="442" fill="#aaa" font-size="8.5">Usage statistics</text>
+
+  <rect x="564" y="408" width="155" height="44" rx="6" fill="#2a2a2a" stroke="#444"/>
+  <text x="579" y="426" fill="#eee" font-size="9" font-weight="600">GET /usage</text>
+  <text x="579" y="442" fill="#aaa" font-size="8.5">Request logs</text>
+</svg>
