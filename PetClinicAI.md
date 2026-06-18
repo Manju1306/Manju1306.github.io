@@ -1051,8 +1051,8 @@ frontend/src/components/chat/
 
 **Credits:** The PetClinic domain model originates from the [Spring PetClinic](https://github.com/spring-projects/spring-petclinic) by **Pivotal** (now VMware Tanzu). The AI assistant concept was inspired by the [official Spring PetClinic AI blog series](https://spring.io/blog/2024/09/26/ai-meets-spring-petclinic-implementing-an-ai-assistant-with-spring-ai-part-i). This TypeScript implementation and all application code are original.
 
-Full source code: [github.com/Manju1306/petclinic-project](https://github.com/Manju1306/petclinic-project)
+Full source code: [https://github.com/Manju1306/PetClinic](https://github.com/Manju1306/PetClinic)
 
 ---
 
-*Built with Vercel AI SDK v6. Powered by real data, not hallucinations.*
+*Built with Vercel AI SDK v6.
