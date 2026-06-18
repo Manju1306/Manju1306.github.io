@@ -841,9 +841,7 @@ The prompt tells the AI:
 
 The chat widget is a self-contained React component styled entirely with Tailwind CSS:
 <p align="center">
-  <img src="diagrams/chat-welcome.png" alt="PetClinic Chat Welcome" width="350"/>
-  <img src="diagrams/chat-show-pets.png" alt="PetClinic Show Pets" width="350"/>
-<img src="diagrams/chat.vaccination-pet.png" alt="PetClinic Show Pets" width="350"/>
+ <img src="diagrams/chat-ui-overview.png" alt="PetClinic AI Chat Widget" width="100%"/>
 </p>
 
 ```
