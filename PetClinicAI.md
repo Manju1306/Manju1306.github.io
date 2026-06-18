@@ -840,6 +840,11 @@ The prompt tells the AI:
 ## 11. The Chat Widget — Frontend UI
 
 The chat widget is a self-contained React component styled entirely with Tailwind CSS:
+<p align="center">
+  <img src="diagrams/chat-welcome.png" alt="PetClinic Chat Welcome" width="350"/>
+  <img src="diagrams/chat-show-pets.png" alt="PetClinic Show Pets" width="350"/>
+<img src="diagrams/chat.vaccination-pet.png" alt="PetClinic Show Pets" width="350"/>
+</p>
 
 ```
 ┌─────────────────────────────────────────┐
