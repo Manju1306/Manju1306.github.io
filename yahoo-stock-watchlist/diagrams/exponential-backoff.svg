@@ -1,0 +1,70 @@
+<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Exponential Backoff — Reconnect Strategy</title>
+  <desc>Shows how reconnect delay grows exponentially: 1s, 2s, 4s, 8s, capped at 15s</desc>
+  <style>
+    .heading { font-family: system-ui, sans-serif; font-size: 15px; fill: #111; font-weight: 700; text-anchor: middle; }
+    .label { font-family: system-ui, sans-serif; font-size: 11px; fill: #111; text-anchor: middle; }
+    .sub { font-family: system-ui, sans-serif; font-size: 10px; fill: #666; text-anchor: middle; }
+    .val { font-family: monospace; font-size: 11px; text-anchor: middle; font-weight: 600; }
+    .axis { font-family: system-ui, sans-serif; font-size: 10px; fill: #888; text-anchor: middle; }
+    .bar { rx: 4; ry: 4; }
+    .cap-line { stroke: #ef4444; stroke-width: 1.5; stroke-dasharray: 6,3; }
+    .cap-label { font-family: system-ui, sans-serif; font-size: 10px; fill: #ef4444; font-weight: 600; }
+    .note { font-family: system-ui, sans-serif; font-size: 10px; fill: #888; font-style: italic; text-anchor: middle; }
+    .code { font-family: monospace; font-size: 10px; fill: #555; text-anchor: middle; }
+  </style>
+
+  <text x="360" y="28" class="heading">Exponential Backoff — Reconnect Strategy</text>
+  <text x="360" y="46" class="code">delay = Math.min(1000 * 2 ** retryCount, 15000)</text>
+
+  <!-- Y axis -->
+  <line x1="100" y1="70" x2="100" y2="230" stroke="#ccc" stroke-width="1" />
+  <!-- X axis -->
+  <line x1="100" y1="230" x2="660" y2="230" stroke="#ccc" stroke-width="1" />
+
+  <text x="50" y="154" class="axis" transform="rotate(-90, 50, 154)">Delay (seconds)</text>
+  <text x="380" y="252" class="axis">Retry attempt</text>
+
+  <!-- Y labels -->
+  <text x="90" y="234" class="axis">0</text>
+  <text x="86" y="184" class="axis">5s</text>
+  <text x="84" y="134" class="axis">10s</text>
+  <text x="84" y="84" class="axis">15s</text>
+
+  <!-- 15s cap line -->
+  <line x1="100" y1="80" x2="660" y2="80" class="cap-line" />
+  <text x="672" y="84" class="cap-label" text-anchor="start">cap</text>
+
+  <!-- Retry 0: 1s = 10px -->
+  <rect x="130" y="220" width="70" height="10" class="bar" fill="#2563eb" />
+  <text x="165" y="216" class="val" style="fill: #2563eb;">1s</text>
+  <text x="165" y="244" class="label">#0</text>
+
+  <!-- Retry 1: 2s = 20px -->
+  <rect x="220" y="210" width="70" height="20" class="bar" fill="#2563eb" />
+  <text x="255" y="206" class="val" style="fill: #2563eb;">2s</text>
+  <text x="255" y="244" class="label">#1</text>
+
+  <!-- Retry 2: 4s = 40px -->
+  <rect x="310" y="190" width="70" height="40" class="bar" fill="#2563eb" />
+  <text x="345" y="186" class="val" style="fill: #2563eb;">4s</text>
+  <text x="345" y="244" class="label">#2</text>
+
+  <!-- Retry 3: 8s = 80px -->
+  <rect x="400" y="150" width="70" height="80" class="bar" fill="#2563eb" />
+  <text x="435" y="146" class="val" style="fill: #2563eb;">8s</text>
+  <text x="435" y="244" class="label">#3</text>
+
+  <!-- Retry 4: 16s capped to 15s = 150px -->
+  <rect x="490" y="80" width="70" height="150" class="bar" fill="#f59e0b" />
+  <text x="525" y="76" class="val" style="fill: #f59e0b;">15s</text>
+  <text x="525" y="244" class="label">#4</text>
+
+  <!-- Retry 5: stays at 15s -->
+  <rect x="580" y="80" width="70" height="150" class="bar" fill="#f59e0b" />
+  <text x="615" y="76" class="val" style="fill: #f59e0b;">15s</text>
+  <text x="615" y="244" class="label">#5+</text>
+
+  <text x="360" y="278" class="note">On successful reconnect: retryCount resets to 0</text>
+  <text x="360" y="292" class="note">On intentional close: set ws.onclose = null first to prevent auto-reconnect</text>
+</svg>

@@ -1,0 +1,89 @@
+<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Backpressure — Drop vs Buffer Strategy</title>
+  <desc>Shows the gRPC streaming backpressure mechanism: when client is slow, drop ticks instead of buffering to prevent OOM</desc>
+  <style>
+    .heading { font-family: system-ui, sans-serif; font-size: 15px; fill: #111; font-weight: 700; text-anchor: middle; }
+    .subheading { font-family: system-ui, sans-serif; font-size: 12px; fill: #111; font-weight: 600; text-anchor: middle; }
+    .label { font-family: system-ui, sans-serif; font-size: 11px; fill: #111; text-anchor: middle; }
+    .sub { font-family: system-ui, sans-serif; font-size: 10px; fill: #666; text-anchor: middle; }
+    .code { font-family: monospace; font-size: 10px; fill: #555; text-anchor: middle; }
+    .box { rx: 6; ry: 6; stroke-width: 1.5; }
+    .neutral { fill: #f3f4f6; stroke: #d1d5db; }
+    .tick { fill: #2563eb; rx: 3; ry: 3; }
+    .tick-drop { fill: #ef4444; rx: 3; ry: 3; opacity: 0.3; }
+    .tick-buf { fill: #f59e0b; rx: 3; ry: 3; }
+    .arrow { stroke: #999; stroke-width: 1.5; fill: none; marker-end: url(#bp-a); }
+    .cross { stroke: #ef4444; stroke-width: 2; stroke-linecap: round; }
+    .note { font-family: system-ui, sans-serif; font-size: 10px; fill: #888; font-style: italic; text-anchor: middle; }
+  </style>
+  <defs>
+    <marker id="bp-a" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5" fill="#999" /></marker>
+  </defs>
+
+  <text x="360" y="28" class="heading">Backpressure in gRPC Streaming</text>
+  <text x="360" y="46" class="sub">Fast producer (10 ticks/sec) + slow consumer (bad Wi-Fi)</text>
+
+  <!-- LEFT: Bad — naive buffer -->
+  <rect x="20" y="62" width="330" height="170" rx="10" fill="#fef2f2" stroke="#fecaca" stroke-width="1" />
+  <text x="185" y="82" class="subheading" style="fill: #ef4444;">✗ Naive: buffer everything</text>
+
+  <rect x="40" y="96" width="80" height="32" class="box neutral" />
+  <text x="80" y="116" class="label">Engine</text>
+
+  <rect x="150" y="92" width="100" height="40" class="box" style="fill: #fef3c7; stroke: #f59e0b;" />
+  <text x="200" y="108" class="label" style="font-size:10px;">Buffer (RAM)</text>
+  <rect x="158" y="118" width="10" height="10" class="tick-buf" />
+  <rect x="172" y="118" width="10" height="10" class="tick-buf" />
+  <rect x="186" y="118" width="10" height="10" class="tick-buf" />
+  <rect x="200" y="118" width="10" height="10" class="tick-buf" />
+  <rect x="214" y="118" width="10" height="10" class="tick-buf" />
+  <rect x="228" y="118" width="10" height="10" class="tick-buf" />
+
+  <rect x="280" y="96" width="56" height="32" class="box neutral" />
+  <text x="308" y="116" class="label" style="font-size:10px;">Client</text>
+  <text x="308" y="146" class="sub" style="fill: #ef4444;">slow</text>
+
+  <line x1="120" y1="112" x2="142" y2="112" class="arrow" />
+  <line x1="250" y1="112" x2="272" y2="112" class="arrow" />
+
+  <text x="185" y="170" class="code" style="fill: #ef4444;">Buffer grows unbounded → OOM crash</text>
+  <text x="185" y="186" class="sub" style="fill: #ef4444;">Server runs out of memory under load</text>
+
+  <!-- RIGHT: Good — drop strategy -->
+  <rect x="370" y="62" width="330" height="170" rx="10" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1" />
+  <text x="535" y="82" class="subheading" style="fill: #16a34a;">✓ This app: drop if not ready</text>
+
+  <rect x="390" y="96" width="80" height="32" class="box neutral" />
+  <text x="430" y="116" class="label">Engine</text>
+
+  <rect x="500" y="92" width="90" height="40" class="box" style="fill: #dbeafe; stroke: #3b82f6;" />
+  <text x="545" y="108" class="label" style="font-size:10px;">ready flag</text>
+  <rect x="508" y="118" width="10" height="10" class="tick" />
+  <rect x="522" y="118" width="10" height="10" class="tick-drop" />
+  <line x1="523" y1="119" x2="531" y2="127" class="cross" />
+  <line x1="531" y1="119" x2="523" y2="127" class="cross" />
+  <rect x="536" y="118" width="10" height="10" class="tick-drop" />
+  <line x1="537" y1="119" x2="545" y2="127" class="cross" />
+  <line x1="545" y1="119" x2="537" y2="127" class="cross" />
+  <rect x="550" y="118" width="10" height="10" class="tick" />
+  <rect x="564" y="118" width="10" height="10" class="tick-drop" />
+  <line x1="565" y1="119" x2="573" y2="127" class="cross" />
+  <line x1="573" y1="119" x2="565" y2="127" class="cross" />
+
+  <rect x="620" y="96" width="56" height="32" class="box neutral" />
+  <text x="648" y="116" class="label" style="font-size:10px;">Client</text>
+  <text x="648" y="146" class="sub" style="fill: #16a34a;">gets latest</text>
+
+  <line x1="470" y1="112" x2="492" y2="112" class="arrow" />
+  <line x1="590" y1="112" x2="612" y2="112" class="arrow" />
+
+  <text x="535" y="170" class="code" style="fill: #16a34a;">write() returns false → skip tick</text>
+  <text x="535" y="186" class="sub" style="fill: #16a34a;">Client always sees latest price, not stale backlog</text>
+
+  <!-- Code explanation -->
+  <rect x="60" y="250" width="600" height="90" rx="8" fill="#f8f9fa" stroke="#e5e7eb" stroke-width="1" />
+  <text x="360" y="272" class="subheading">The mechanism (quoteService.ts)</text>
+  <text x="360" y="292" class="code">ready = call.write(quote);     // false = buffer full, stop</text>
+  <text x="360" y="308" class="code">call.on('drain', () =&gt; ready = true);  // buffer emptied, resume</text>
+  <text x="360" y="326" class="note">For live market data: latest price &gt; complete history. Drop, don't buffer.</text>
+</svg>

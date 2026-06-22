@@ -1,0 +1,88 @@
+<svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>gRPC Quote Server — System Architecture</title>
+  <desc>Architecture diagram showing market data sources flowing through MarketDataEngine hub to gRPC clients and browser clients</desc>
+  <style>
+    .box { rx: 8; ry: 8; stroke-width: 1.5; }
+    .hub { fill: #2563eb; stroke: #2563eb; }
+    .source { fill: #f3f4f6; stroke: #d1d5db; }
+    .label { font-family: system-ui, sans-serif; font-size: 13px; fill: #111; text-anchor: middle; }
+    .label-hub { font-family: system-ui, sans-serif; font-size: 13px; fill: #fff; text-anchor: middle; font-weight: 600; }
+    .sublabel { font-family: system-ui, sans-serif; font-size: 10px; fill: #666; text-anchor: middle; }
+    .sublabel-hub { font-family: system-ui, sans-serif; font-size: 10px; fill: rgba(255,255,255,0.8); text-anchor: middle; }
+    .arrow { stroke: #999; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+    .arrow-bold { stroke: #2563eb; stroke-width: 2; fill: none; marker-end: url(#arrowhead-blue); }
+    .note { font-family: system-ui, sans-serif; font-size: 10px; fill: #888; text-anchor: middle; font-style: italic; }
+    .heading { font-family: system-ui, sans-serif; font-size: 15px; fill: #111; font-weight: 700; text-anchor: middle; }
+    .legend-text { font-family: system-ui, sans-serif; font-size: 10px; fill: #666; text-anchor: start; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#999" />
+    </marker>
+    <marker id="arrowhead-blue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#2563eb" />
+    </marker>
+  </defs>
+
+  <text x="360" y="28" class="heading">gRPC Quote Server — System on One Napkin</text>
+
+  <rect x="30" y="100" width="140" height="50" class="box source" />
+  <text x="100" y="122" class="label">Simulator</text>
+  <text x="100" y="136" class="sublabel">Random walk ticks</text>
+
+  <rect x="30" y="180" width="140" height="50" class="box source" />
+  <text x="100" y="202" class="label">Yahoo Live Feed</text>
+  <text x="100" y="216" class="sublabel">WebSocket + Protobuf</text>
+
+  <text x="100" y="82" class="note">Market Data Sources</text>
+
+  <rect x="260" y="120" width="200" height="80" class="box hub" />
+  <text x="360" y="152" class="label-hub">MarketDataEngine</text>
+  <text x="360" y="168" class="sublabel-hub">publish() / subscribe()</text>
+  <text x="360" y="182" class="sublabel-hub">Latest price per symbol</text>
+
+  <line x1="170" y1="125" x2="252" y2="148" class="arrow-bold" />
+  <line x1="170" y1="205" x2="252" y2="172" class="arrow-bold" />
+  <text x="215" y="118" class="note">publish()</text>
+
+  <rect x="540" y="80" width="150" height="70" class="box source" />
+  <text x="615" y="107" class="label">QuoteService</text>
+  <text x="615" y="121" class="sublabel">StreamQuotes (stream)</text>
+  <text x="615" y="133" class="sublabel">GetQuote (unary)</text>
+
+  <line x1="460" y1="148" x2="532" y2="118" class="arrow-bold" />
+  <text x="498" y="118" class="note">subscribe()</text>
+
+  <rect x="540" y="180" width="150" height="44" class="box source" />
+  <text x="615" y="200" class="label">gRPC Clients</text>
+  <text x="615" y="212" class="sublabel">grpcurl, apps</text>
+
+  <line x1="615" y1="150" x2="615" y2="172" class="arrow" />
+  <text x="658" y="166" class="note">TLS :9090</text>
+
+  <rect x="548" y="52" width="134" height="24" rx="12" fill="#2563eb" opacity="0.12" stroke="none" />
+  <text x="615" y="68" class="note" style="fill: #2563eb; font-style: normal; font-weight: 600;">JWT Authenticated</text>
+
+  <rect x="260" y="280" width="200" height="50" class="box source" />
+  <text x="360" y="302" class="label">Yahoo Proxy</text>
+  <text x="360" y="316" class="sublabel">HTTP + WebSocket :8080</text>
+
+  <rect x="540" y="280" width="150" height="50" class="box source" />
+  <text x="615" y="302" class="label">Browser Client</text>
+  <text x="615" y="316" class="sublabel">React Frontend</text>
+
+  <line x1="460" y1="305" x2="532" y2="305" class="arrow" />
+
+  <line x1="240" y1="254" x2="700" y2="254" stroke="#d1d5db" stroke-dasharray="4,4" stroke-width="1" />
+  <text x="470" y="268" class="note">(separate, optional)</text>
+
+  <rect x="30" y="356" width="660" height="52" rx="8" fill="#f8f9fa" stroke="#e5e7eb" stroke-width="1" />
+  <circle cx="52" cy="382" r="6" fill="#2563eb" />
+  <text x="66" y="386" class="legend-text">Central hub</text>
+  <circle cx="160" cy="382" r="6" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1.5" />
+  <text x="174" y="386" class="legend-text">Sources / services / clients</text>
+  <circle cx="350" cy="382" r="6" fill="#2563eb" opacity="0.25" />
+  <text x="364" y="386" class="legend-text">JWT authenticated</text>
+  <line x1="490" y1="382" x2="514" y2="382" stroke="#d1d5db" stroke-dasharray="4,4" stroke-width="1" />
+  <text x="524" y="386" class="legend-text">Optional boundary</text>
+</svg>
